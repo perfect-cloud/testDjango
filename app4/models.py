@@ -19,6 +19,12 @@ class UserBaseInfo(models.Model):
         db_table = 'UserBaseInfo4'
 
 
+class DepartInfo(models.Model):
+    id = models.AutoField(verbose_name='部门编号', primary_key=True)
+    departname = models.CharField(verbose_name='部门名称', max_length=30)
+    createdate = models.DateTimeField(verbose_name='创建日期', db_column='createDate')
+
+
 class UserExtraInfo(models.Model):
     id = models.AutoField(verbose_name='扩展编号', primary_key=True)
     username = models.CharField(verbose_name='用户名称', max_length=30)
@@ -32,3 +38,12 @@ class UserExtraInfo(models.Model):
     memo = models.TextField(verbose_name='备注', blank=True, null=True)
     # 返回关联两张表的外键user
     user = models.OneToOneField(UserBaseInfo, on_delete=models.CASCADE)
+    # 返回关联两张表的外键depart
+    depart = models.ForeignKey(DepartInfo, default="", on_delete=models.DO_NOTHING)
+
+
+class SkillInfo(models.Model):
+    id = models.AutoField(verbose_name='技能编号', primary_key=True)
+    skillname = models.CharField(verbose_name='特长', max_length=30)
+    createdate = models.DateTimeField(verbose_name='创建日期', db_column='createDate')
+    user = models.ManyToManyField(UserExtraInfo, db_table="user_skill")

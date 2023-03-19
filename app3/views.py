@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import datetime
+import logging
 
 
 # Create your views here.
@@ -8,6 +9,8 @@ def var(request):
     lists = ['Java', 'Python', 'C', 'C#', 'JavaScript']
     # 字典对象
     dicts = {'姓名': '张三', '年龄': 25, '性别': '男'}
+    logger = logging.getLogger('django')
+    logger.info("This is an error msg")
     return render(request, '3/var.html', {'lists': lists, 'dicts': dicts})
 
 

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from app1 import views
-import settings
+# import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('app1.urls')),
     path('', include('app2.urls')),
     path('', include('app3.urls')),
-    path('', include('app4.urls')),
+    # path('', include('app4.urls')),
     # re_path('media/(?P<path>.*)', serve, {"document_root": settings.MEDIA_ROOT}),
     # re_path('static/(?P<path>.*)', serve, {"document_root": settings.STATIC_ROOT}),
 ]
