@@ -90,8 +90,8 @@ DATABASES = {
         'PASSWORD': 'wen.5645171',
         'HOST': 'localhost',
         'PORT': '3306',
-        'OPTION': {
-            "init_command": "SET foreign_key_checks = 0;",
+        'OPTIONS': {
+            "init_command": "SET FOREIGN_KEY_CHECKS=0;",
         }
     }
 }
